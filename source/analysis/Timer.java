@@ -1,3 +1,5 @@
+package analysis;
+
 
 public final class Timer {
 
@@ -15,7 +17,7 @@ public final class Timer {
 	}
 
 	/** End trigger */
-	public static void end(){
+	public static void stop(){
 		setEnd(System.currentTimeMillis());
 	}
 
