@@ -3,6 +3,7 @@ package analysis;
 import lcs.Recursive;
 import lcs.memoizing.*;
 
+//Get T(n) 
 public final class iterator {
 	public static void iterate(String algorithm , int size){
 		int avg;
@@ -19,7 +20,16 @@ public final class iterator {
 				Timer.stop();
 				avg += Timer.elapsedTime();
 			}
-			System.out.println("- Input size: " + i + ", Algorithm: " + algorithm + ", Time: " + avg / 30 + " ms");
+			// Show the experimental data analysis
+			if(algorithm.equals("Recursive")){ // Recursive algorithm with out backtracking
+				System.out.println("- Input size: " + i + ", Algorithm: " + algorithm + ", Time: " + avg / 30 
+						+ " ms, T(" + i + "): " + Recursive.getnOperations());
+			}
+			else{ // Memoization algorithms with backtracking
+				System.out.println("- Input size: " + i + ", Algorithm: " + algorithm + ", Time: " 
+			+ avg / 30 + " ms, T(" + i + "): " + Lcs.getnOperations() + "\nA: "+ Lcs.getA() +"\nB: "+ Lcs.getB() 
+			+  "\nSubsequence: " + Lcs.rebuild(algorithm.equals("TopDown") ? 2 : 1) + "\n");
+			}
 		}
 	}
 }
